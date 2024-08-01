@@ -23,17 +23,17 @@
     </form>
     {% if predicted_species %}
         <div class="prediction">
-            <h2 style="font-size: 25px;">Prediction Species </h2> 
+            <h2 style="font-size: 20px;">Prediction Species </h2> 
             <!-- is: {{ predicted_species }}</h2> -->
             {% if predicted_species == 'Setosa' %}
                 <img src="{{ url_for('static', filename='setosa.jpg') }}"  style="width: 150px; height: auto;">
-                <p style="font-weight: bolder;font-size: 20px;">Setosa</p>
+                <p style="font-weight: bolder;font-size: 18px;">Setosa</p>
             {% elif predicted_species == 'Versicolor' %}
                 <img src="{{ url_for('static', filename='versicolor.jpeg') }}" style="width: 150px; height: auto;">
-                <p style="font-weight: bolder;font-size: 20px;">Versicolor</p>
+                <p style="font-weight: bolder;font-size: 18px;">Versicolor</p>
             {% elif predicted_species == 'Virginica' %}
                 <img src="{{ url_for('static', filename='virginica.jpg') }}"  style="width: 150px; height: auto;">
-                <p style="font-weight: bolder;font-size: 20px;">Virginica</p>
+                <p style="font-weight: bolder;font-size: 18px;">Virginica</p>
             {% endif %}
         </div>
     {% endif %}
