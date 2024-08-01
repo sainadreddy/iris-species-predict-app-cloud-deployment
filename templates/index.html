@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iris Prediction Model</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body >
+    <h1>Iris Species Prediction</h1>
+    <form action="/predict" method="post">
+        <h2 style="font-size: 16px;font-family: Arial, Helvetica, sans-serif;font-style: normal;text-align: left;">Enter the desired inputs in cm: </h2>
+        <label for="sepal_length">Sepal Length:</label>
+        <input type="text" id="sepal_length" name="sepal_length" required>
+        <label for="sepal_width">Sepal Width:</label>
+        <input type="text" id="sepal_width" name="sepal_width" required>
+        <label for="petal_length">Petal Length:</label>
+        <input type="text" id="petal_length" name="petal_length" required>
+        <label for="petal_width">Petal Width:</label>
+        <input type="text" id="petal_width" name="petal_width" required>
+        <br>
+        <input type="submit" value="Predict">
+    </form>
+    {% if predicted_species %}
+        <div class="prediction">
+            <h2>Prediction Species </h2> 
+            <!-- is: {{ predicted_species }}</h2> -->
+            {% if predicted_species == 'Setosa' %}
+                <img src="{{ url_for('static', filename='setosa.jpg') }}"  style="width: 300px; height: auto;">
+                <p style="font-weight: bolder;font-size: 25px;">Setosa</p>
+            {% elif predicted_species == 'Versicolor' %}
+                <img src="{{ url_for('static', filename='versicolor.jpeg') }}" style="width: 300px; height: auto;">
+                <p style="font-weight: bolder;font-size: 25px;">Versicolor</p>
+            {% elif predicted_species == 'Virginica' %}
+                <img src="{{ url_for('static', filename='virginica.jpg') }}"  style="width: 300px; height: auto;">
+                <p style="font-weight: bolder;font-size: 25px;">Virginica</p>
+            {% endif %}
+        </div>
+    {% endif %}
+</body>
+</html>
